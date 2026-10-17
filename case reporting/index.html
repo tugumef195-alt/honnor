@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8f5">
+    <meta name="description" content="A private, supportive way to share a campus concern and follow its progress.">
+    <title>Harbor — Campus support</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Harbor home">
+        <span class="brand-mark" aria-hidden="true">h</span>
+        <span>harbor</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#support">Get support</a>
+        <button class="text-button" id="staff-entry" type="button">Staff sign in</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> A private place to start</p>
+          <h1 id="hero-title">You deserve to feel <em>safe</em> here.</h1>
+          <p class="hero-intro">If something happened, or something doesn’t feel right, you can tell us in your own words. You’re in control of what you share.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="start-report" type="button">Share a concern <span aria-hidden="true">→</span></button>
+            <a class="button button-quiet" href="#track">Check a report</a>
+          </div>
+          <p class="gentle-note"><span aria-hidden="true">♡</span> You don’t have to be sure what to call it to ask for support.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="art-leaf leaf-one"></div><div class="art-leaf leaf-two"></div>
+          <div class="art-stem"></div>
+          <div class="art-card"><span class="art-sun"></span><span class="art-line line-one"></span><span class="art-line line-two"></span><span class="art-line line-three"></span></div>
+          <span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✳</span>
+        </div>
+      </section>
+
+      <section class="privacy-strip" aria-label="Privacy summary">
+        <div><span class="privacy-icon" aria-hidden="true">⌑</span><p><strong>Private by design</strong><br>Full report details are for authorized case staff.</p></div>
+        <div><span class="privacy-icon" aria-hidden="true">↗</span><p><strong>Your choice</strong><br>Share contact details, or stay anonymous.</p></div>
+        <div><span class="privacy-icon" aria-hidden="true">◷</span><p><strong>Clear next steps</strong><br>Keep your code to check for updates.</p></div>
+      </section>
+
+      <section class="steps-section" id="how-it-works">
+        <div class="section-heading"><p class="eyebrow">A few small steps</p><h2>What happens when you share</h2></div>
+        <ol class="steps">
+          <li><span class="step-number">01</span><h3>Tell us what feels okay</h3><p>Write as much or as little as you want. You can submit without your name.</p></li>
+          <li><span class="step-number">02</span><h3>A trained person reads it</h3><p>A small, authorized support team reviews your report and considers what you may need.</p></li>
+          <li><span class="step-number">03</span><h3>Stay in the loop</h3><p>Your private reference and access code let you check progress without creating an account.</p></li>
+        </ol>
+      </section>
+
+      <section class="report-panel" id="report-panel" hidden aria-labelledby="report-title">
+        <div class="panel-heading">
+          <div><p class="eyebrow">Share at your pace</p><h2 id="report-title">Tell us what happened</h2><p class="muted">Fields marked optional can be left blank. You can pause before sending.</p></div>
+          <button class="icon-button" id="close-report" aria-label="Close report form" type="button">×</button>
+        </div>
+        <div class="progress-track" aria-label="Step 1 of 1"><span></span></div>
+        <p class="progress-label">Step 1 of 1 <span>• About the concern</span></p>
+        <form id="report-form">
+          <label for="category">What kind of concern would you like to share?</label>
+          <select id="category" name="category" required>
+            <option value="">Choose what fits best</option>
+            <option>Harassment or unwanted attention</option>
+            <option>Discrimination</option>
+            <option>Bullying or intimidation</option>
+            <option>Something else</option>
+          </select>
+          <label for="details">What would you like us to know? <span class="optional">You can keep it brief.</span></label>
+          <textarea id="details" name="details" rows="5" maxlength="8000" required placeholder="Share only what you feel comfortable sharing. You can include when or where it happened if that feels useful."></textarea>
+          <label for="person">Is there someone involved? <span class="optional">Optional</span></label>
+          <input id="person" name="person" maxlength="200" autocomplete="off" placeholder="A name or description, if you know it">
+          <label for="contact">How can we safely reach you? <span class="optional">Optional   leave blank to report anonymously</span></label>
+          <input id="contact" name="contact" maxlength="320" autocomplete="email" placeholder="Email address or another safe way to reach you">
+          <p class="muted">Only authorized case staff can see contact details. No email or text updates are sent; use your codes to check status.</p>
+          <div class="honesty-box"><span aria-hidden="true">i</span><p><strong>Before you send</strong><br>Authorized case staff can read your report. If software flags a possible repeat pattern, an authorized committee may see limited details such as report reference, category, and date - not your story or contact details. Similarity suggestions are leads for human review, not findings. Your report is not fully anonymous if your story identifies you. In rare situations, staff may need to share information for an immediate safety risk or legal obligation. You can ask a campus support person about privacy before deciding.</p></div>
+          <label class="checkbox-row"><input id="understood" type="checkbox" required><span>I understand what happens to the information I share.</span></label>
+          <p class="form-error" id="report-error" role="alert" hidden></p>
+          <div class="form-actions"><button class="button button-primary" type="submit">Send confidentially <span aria-hidden="true">→</span></button><button class="button button-quiet" type="button" id="cancel-report">Not right now</button></div>
+        </form>
+      </section>
+
+      <section class="success-panel" id="success-panel" hidden aria-live="polite">
+        <div class="success-symbol" aria-hidden="true">✓</div><p class="eyebrow">Your report has been received</p><h2>Keep these details somewhere safe</h2>
+        <p>Use both your reference and access code to check progress. We cannot recover them for you, and they are the only way to view this report online.</p>
+        <div class="codes"><div><span>Reference</span><strong id="report-reference"></strong></div><div><span>Access code</span><strong id="report-access"></strong></div></div>
+        <button class="button button-primary" id="copy-codes" type="button">Copy both codes</button>
+        <button class="button button-quiet" id="dismiss-success" type="button">Done</button>
+      </section>
+
+      <section class="track-section" id="track">
+        <div class="track-copy"><p class="eyebrow">Already shared?</p><h2>Your report, your pace.</h2><p>Check whether your report is being reviewed or if there’s an update. You’ll need the reference and access code you received when you sent it.</p></div>
+        <form class="track-form" id="status-form">
+          <label for="reference">Report reference</label><input id="reference" required placeholder="For example, CR-ABC123XYZ" autocomplete="off">
+          <label for="access-code">Private access code</label><input id="access-code" required type="password" autocomplete="off">
+          <p class="form-error" id="status-error" role="alert" hidden></p>
+          <button class="button button-dark" type="submit">Check status <span aria-hidden="true">→</span></button>
+          <div class="status-result" id="status-result" hidden aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="support-section" id="support">
+        <div><p class="eyebrow">You can reach out without reporting</p><h2>Support is here, either way.</h2><p>You can talk with a trusted person or contact a campus support service to explore options. If someone is in immediate danger, contact local emergency services.</p></div>
+        <div class="support-card"><span class="support-icon" aria-hidden="true">♡</span><h3>Campus support contact</h3><p>Ask your institution to add its confidential advocate, counseling service, and emergency contacts here before launch.</p><a href="mailto:support@example.edu">support@example.edu <span aria-hidden="true">↗</span></a><small>Sample contact   replace with verified campus details.</small></div>
+      </section>
+
+      <section class="staff-view" id="staff-view" hidden aria-labelledby="staff-title">
+        <div class="staff-header"><div><p class="eyebrow">Private workspace</p><h2 id="staff-title">Case review</h2><p class="muted" id="staff-role"></p></div><button class="button button-quiet" id="staff-logout" type="button">Sign out</button></div>
+        <div class="staff-tabs" id="staff-tabs"><button class="tab active" data-view="cases" type="button">Cases</button><button class="tab" data-view="patterns" type="button">Pattern leads <span class="tab-lock">Committee only</span></button></div>
+        <p class="form-error" id="staff-error" role="alert" hidden></p>
+        <div id="case-list" class="case-list"></div>
+        <div id="pattern-list" class="pattern-list" hidden></div>
+        <p class="retention-note" id="retention-note"></p>
+      </section>
+
+      <section class="staff-login" id="staff-login" hidden aria-labelledby="login-title">
+        <button class="icon-button login-close" id="close-login" aria-label="Close sign in" type="button">×</button>
+        <p class="eyebrow">Authorized team members</p><h2 id="login-title">Staff sign in</h2>
+        <p class="muted">This workspace is for approved case staff and committee members only.</p>
+        <form id="login-form"><label for="login-email">Institution email</label><input id="login-email" type="email" autocomplete="username" required><label for="login-password">Password</label><input id="login-password" type="password" autocomplete="current-password" required><p class="form-error" id="login-error" role="alert" hidden></p><button class="button button-primary" type="submit">Sign in securely</button></form>
+      </section>
+    </main>
+    <footer><a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true">h</span><span>harbor</span></a><p>Care starts with being heard.</p><a href="#support">Support and safety</a></footer>
+    <script src="/api-config.js"></script>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
